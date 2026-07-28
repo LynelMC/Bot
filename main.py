@@ -45,7 +45,6 @@ class MyBot(commands.Bot):
         type=discord.ActivityType.playing,
         name="LynelBot"
     )
-)
         )
 
 
