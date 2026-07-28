@@ -41,7 +41,11 @@ class MyBot(commands.Bot):
     async def on_ready(self):
         logger.info(f"ログインしました: {self.user} (ID: {self.user.id})")
         await self.change_presence(
-            activity=discord.Activity(type=discord.ActivityType.playing, name="LynelBot")
+    activity=discord.Activity(
+        type=discord.ActivityType.playing,
+        name="LynelBot"
+    )
+)
         )
 
 
