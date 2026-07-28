@@ -21,9 +21,8 @@ class VerifyView(discord.ui.View):
         super().__init__(timeout=None)
 
     @discord.ui.button(
-        label="認証する",
+        label="認証",
         style=discord.ButtonStyle.success,
-        emoji="✅",
         custom_id=VERIFY_CUSTOM_ID,
     )
     async def verify_button(self, interaction: discord.Interaction, button: discord.ui.Button):
@@ -84,7 +83,7 @@ class Verification(commands.Cog):
         self,
         interaction: discord.Interaction,
         role: discord.Role,
-        title: str = "サーバー認証",
+        title: str = "認証パネル",
         description: str = "下のボタンを押して認証を完了してください。",
     ):
         if interaction.guild is None:
@@ -113,7 +112,7 @@ class Verification(commands.Cog):
         await interaction.channel.send(embed=embed, view=VerifyView())
 
         # 実行者だけに完了メッセージ
-        await interaction.response.send_message("✅ 認証パネルを作成しました！", ephemeral=True)
+        await interaction.response.send_message("認証パネルを作成しました！", ephemeral=True)
         logger.info(f"認証パネルを設置しました guild={interaction.guild.id} role={role.id}")
 
 
